@@ -1,14 +1,14 @@
-import { Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn, CreateDateColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn, CreateDateColumn } from 'typeorm';
 
 enum Species {
-  Dog = "Dog",
-  Cat = "Cat"
+  Dog = 'Dog',
+  Cat = 'Cat'
 }
 
-@Entity("Animals")
+@Entity('Animals')
 class Animal {
 
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
