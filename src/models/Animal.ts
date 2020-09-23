@@ -1,15 +1,14 @@
 import { Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn, CreateDateColumn } from 'typeorm';
 
+import _Entity from './Entity';
+
 enum Species {
   Dog = 'Dog',
   Cat = 'Cat'
 }
 
-@Entity('Animals')
-class Animal {
-
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+@Entity('animals')
+export class Animal extends _Entity {
 
   @Column()
   name: string;
@@ -28,12 +27,4 @@ class Animal {
 
   @Column('enum', { enum: Species })
   specie: Species;
-
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
 }
-
-export default Animal;

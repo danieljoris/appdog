@@ -1,3 +1,2 @@
-class User {}
+export class User {}
 
-export default User;
