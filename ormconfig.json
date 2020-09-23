@@ -1,0 +1,12 @@
+{
+    "type": "postgres",
+    "host": "172.28.224.1",
+    "port": 5432,
+    "username": "dev",
+    "password": "test@123",
+    "database": "appdog",
+    "migrations": ["models/*.js"],
+    "cli": {
+        "migrationsDir": "src/migrations"
+    }
+ }
