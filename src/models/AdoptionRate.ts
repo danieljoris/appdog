@@ -7,7 +7,7 @@ export enum AdoptionRateType {
 }
 
 @Entity('adoptionsRate')
-export class AdoptionRate extends _Entity {
+export default class AdoptionRate extends _Entity {
 
     @Column('enum', { enum: AdoptionRateType })
     type: AdoptionRateType;

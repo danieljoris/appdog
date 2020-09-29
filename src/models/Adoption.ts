@@ -1,22 +1,24 @@
-import { Column, Entity, Generated } from "typeorm";
-import { Adopter } from "./Adopter";
-import { Animal } from "./Animal";
+import { Column, Entity, Generated, JoinColumn, ManyToOne, OneToOne } from "typeorm";
+import Adopter from "./Adopter";
+import Animal from "./Animal";
 import _Entity from "./Entity";
-import { ResponsibilityStatement } from "./ResponsibilityStatement";
+import ResponsibilityStatement from "./ResponsibilityStatement";
 
 @Entity('adoptions')
-export class Adoption extends _Entity {
-    
-    @Column()
+export default class Adoption extends _Entity {
+
+    @ManyToOne(type => Adopter, adopter => adopter.adoptions)
     adopter: Adopter;
 
-    @Column()
-    Animal: Animal;
+    @OneToOne(type => Animal)
+    @JoinColumn()
+    animal: Animal;
 
     @Column()
     adoptionDate: Date;
 
-    @Column()
+    @OneToOne(type => ResponsibilityStatement)
+    @JoinColumn()
     resposabilityStatement: ResponsibilityStatement;
 
     @Column()

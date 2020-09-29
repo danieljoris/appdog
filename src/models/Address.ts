@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import Adopter from './Adopter';
+
 import _Entity from './Entity';
 
 export enum AddressType {
@@ -6,8 +8,12 @@ export enum AddressType {
     COMMERCIAL = 'COMMERCIAL',
 }
 
-@Entity('addresses')
-export class Address extends _Entity {
+@Entity('adresses')
+export default class Address extends _Entity {
+    
+    @ManyToOne(type => Adopter, adopter => adopter.adresses)
+    adopter: Adopter;
+
     @Column('enum', { enum: AddressType })
     type: AddressType;
 

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import Adopter from "./Adopter";
 import _Entity from "./Entity";
 
 export enum ContactType {
@@ -6,8 +7,8 @@ export enum ContactType {
     MOBILE_PHONE = 'MOBILE_PHONE'
 }
 
-Entity('phones')
-export class Phone extends _Entity {
+@Entity('phones')
+export default class Phone extends _Entity {
     @Column('enum', { enum: ContactType })
     type: ContactType;
 
@@ -16,4 +17,7 @@ export class Phone extends _Entity {
 
     @Column()
     hasWhatsApp: boolean;
+
+    @ManyToOne(type => Adopter, adopter => adopter.phones)
+    adopter: Adopter;
 }

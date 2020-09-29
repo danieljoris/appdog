@@ -2,13 +2,13 @@ import { Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn, CreateDateCol
 
 import _Entity from './Entity';
 
-enum Species {
+export enum Species {
   Dog = 'Dog',
   Cat = 'Cat'
 }
 
 @Entity('animals')
-export class Animal extends _Entity {
+export default class Animal extends _Entity {
 
   @Column()
   name: string;
