@@ -1,12 +1,15 @@
 {
     "type": "postgres",
-    "host": "172.28.224.1",
+    "host": "172.21.208.1",
     "port": 5432,
     "username": "dev",
     "password": "test@123",
     "database": "appdog",
-    "migrations": ["models/*.js"],
+    "entities": ["src/models/*.ts"],
+    "migrations": ["src/database/migrations/*.ts"],
     "cli": {
-        "migrationsDir": "src/migrations"
-    }
+        "entitiesDir": "src/models/*.ts",
+        "migrationsDir": "src/database/migrations",
+        "subscribersDir": "src/subscribers"
+     }
  }
