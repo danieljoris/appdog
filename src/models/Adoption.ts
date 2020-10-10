@@ -1,6 +1,5 @@
 import { Column, Entity, Generated, JoinColumn, ManyToOne, OneToOne } from "typeorm";
 import Adopter from "./Adopter";
-import AdoptionFee from "./AdoptionFee";
 import Animal from "./Animal";
 import _Entity from "./Entity";
 import ResponsibilityStatement from "./ResponsibilityStatement";
